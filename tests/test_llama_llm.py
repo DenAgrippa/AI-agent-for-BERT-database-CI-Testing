@@ -12,7 +12,10 @@ class TestLlamaLLM(unittest.TestCase):
     @patch("agent.pipeline")
     @patch("agent.AutoTokenizer.from_pretrained")
     @patch("agent.AutoModelForCausalLM.from_pretrained")
-    def test_generate_llama_response(self, mock_model_cls, mock_tokenizer_cls, mock_pipeline):
+    def test_generate_llama_response(self,
+                                     mock_model_cls,
+                                     mock_tokenizer_cls,
+                                     mock_pipeline):
         mock_model = MagicMock()
         mock_tokenizer = MagicMock()
         mock_model_cls.return_value = mock_model
@@ -29,7 +32,10 @@ class TestLlamaLLM(unittest.TestCase):
     @patch("agent.pipeline")
     @patch("agent.AutoTokenizer.from_pretrained")
     @patch("agent.AutoModelForCausalLM.from_pretrained")
-    def test_generate_llama_response_exception(self, mock_model_cls, mock_tokenizer_cls, mock_pipeline):
+    def test_generate_llama_response_exception(self,
+                                               mock_model_cls,
+                                               mock_tokenizer_cls,
+                                               mock_pipeline):
         mock_model_cls.return_value = MagicMock()
         mock_tokenizer_cls.return_value = MagicMock()
 

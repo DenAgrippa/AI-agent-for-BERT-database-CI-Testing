@@ -20,7 +20,11 @@ class BertFilter:
           1 - Jailbreak prompt
         """
         inputs = self.tokenizer(
-            prompt, padding=True, truncation=True, return_tensors='pt', max_length=512)
+            prompt,
+            padding=True,
+            truncation=True,
+            return_tensors='pt',
+            max_length=512)
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
         with torch.no_grad():
             outputs = self.model(**inputs)

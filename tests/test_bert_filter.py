@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
 from bert_filter import BertFilter
-import torch
 
 
 class TestBertFilter(unittest.TestCase):
@@ -19,6 +18,7 @@ class TestBertFilter(unittest.TestCase):
         classifier.model = MagicMock()
         classifier.model.eval = MagicMock()
 
-        with patch("torch.no_grad"), patch("torch.argmax", return_value=MagicMock(item=MagicMock(return_value=1))):
+        with patch("torch.no_grad"), patch("torch.argmax",
+                    return_value=MagicMock(item=MagicMock(return_value=1))):
             result = classifier.classify_prompt("test prompt")
             self.assertEqual(result, 1)

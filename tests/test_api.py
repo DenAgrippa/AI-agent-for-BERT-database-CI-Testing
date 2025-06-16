@@ -1,20 +1,23 @@
 from api import app
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
-# Проверка работоспособности API путем отправки зароса к корневому маршруту эндпоинта
+# Проверка работоспособности API путем отправки зароса к корневому маршруту
+# эндпоинта
 
 
 def test_unit_read_root():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {
-        "message": "Welcome to the FastAPI app! Use the /check_prompt endpoint."
+        "message": "Welcome to the FastAPI app!"\
+            "Use the /check_prompt endpoint."
     }
 
-# Проверка работоспособности API путем отправки запроса по маршруту /check_prompt. Языковая модель заменяется на заглушку в целях тестирования
+# Проверка работоспособности API путем отправки запроса по маршруту
+# /check_prompt. Языковая модель заменяется на заглушку в целях тестирования
 
 
 @patch("agent.BertFilter")

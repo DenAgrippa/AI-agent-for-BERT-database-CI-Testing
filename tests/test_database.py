@@ -19,7 +19,8 @@ class TestDatabase(unittest.TestCase):
 
     def test_init_db_creates_table(self):
         self.cursor.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name='prompts'")
+            "SELECT name FROM sqlite_master WHERE type='table'"\
+                "AND name='prompts'")
         table = self.cursor.fetchone()
         self.assertIsNotNone(table)
         self.assertEqual(table[0], "prompts")
