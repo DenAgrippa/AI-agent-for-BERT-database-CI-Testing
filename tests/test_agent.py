@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from agent import process_prompt, main_with_prompt
 
+
 class TestAgent(unittest.TestCase):
 
     @patch("agent.LlamaLLM")
@@ -10,7 +11,8 @@ class TestAgent(unittest.TestCase):
     def test_main_with_prompt_jailbreak(self, mock_init_db, mock_process_prompt, mock_llama):
         mock_process_prompt.return_value = 1
         result = main_with_prompt("jailbreak prompt")
-        self.assertEqual(result, "Промпт классифицирован как: Jailbreak prompt. Запрос отклонен")
+        self.assertEqual(
+            result, "Промпт классифицирован как: Jailbreak prompt. Запрос отклонен")
         mock_llama.return_value.generate_llama_response.assert_not_called()
 
     @patch("agent.LlamaLLM")
@@ -23,7 +25,9 @@ class TestAgent(unittest.TestCase):
 
         result = main_with_prompt("regular prompt")
         self.assertEqual(result, "regular response")
-        mock_llama_instance.generate_llama_response.assert_called_once_with(prompt_input="regular prompt")
+        mock_llama_instance.generate_llama_response.assert_called_once_with(
+            prompt_input="regular prompt")
+
 
 if __name__ == "__main__":
     unittest.main()

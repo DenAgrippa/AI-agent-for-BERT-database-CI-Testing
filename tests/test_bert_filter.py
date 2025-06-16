@@ -3,6 +3,7 @@ from unittest.mock import patch, MagicMock
 from bert_filter import BertFilter
 import torch
 
+
 class TestBertFilter(unittest.TestCase):
     @patch("bert_filter.BertTokenizer.from_pretrained")
     @patch("bert_filter.BertForSequenceClassification.from_pretrained")

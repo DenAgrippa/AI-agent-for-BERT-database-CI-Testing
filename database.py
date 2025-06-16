@@ -3,6 +3,7 @@ from datetime import datetime
 
 DB_NAME = "prompts.db"
 
+
 def init_db():
     """
     Инициализирует базу данных и создает таблицу prompts, если она не существует.
@@ -24,6 +25,7 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
+
 
 def insert_prompt(prompt_text: str, label: int):
     """

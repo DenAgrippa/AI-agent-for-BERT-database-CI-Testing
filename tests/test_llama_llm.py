@@ -1,3 +1,4 @@
+from agent import LlamaLLM
 import unittest
 from unittest.mock import patch, MagicMock
 import sys
@@ -5,7 +6,6 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from agent import LlamaLLM
 
 class TestLlamaLLM(unittest.TestCase):
 
@@ -41,6 +41,7 @@ class TestLlamaLLM(unittest.TestCase):
 
         response = llm.generate_llama_response("some prompt")
         self.assertTrue(response.startswith("Ошибка:"))
+
 
 if __name__ == "__main__":
     unittest.main()
