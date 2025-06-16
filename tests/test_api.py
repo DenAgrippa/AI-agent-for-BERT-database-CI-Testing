@@ -12,8 +12,8 @@ def test_unit_read_root():
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {
-        "message": "Welcome to the FastAPI app!"\
-            "Use the /check_prompt endpoint."
+        "message": "Welcome to the FastAPI app!"
+                   "Use the /check_prompt endpoint."
     }
 
 # Проверка работоспособности API путем отправки запроса по маршруту
