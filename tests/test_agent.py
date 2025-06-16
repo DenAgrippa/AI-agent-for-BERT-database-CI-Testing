@@ -15,7 +15,7 @@ class TestAgent(unittest.TestCase):
         mock_process_prompt.return_value = 1
         result = main_with_prompt("jailbreak prompt")
         self.assertEqual(
-            result, "Промпт классифицирован как: Jailbreak prompt."
+            result, "Промпт классифицирован как: Jailbreak prompt. "
             "Запрос отклонен")
         mock_llama.return_value.generate_llama_response.assert_not_called()
 
